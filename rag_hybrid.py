@@ -606,6 +606,7 @@ def main():
         return
 
     # ----------------- Local (FAISS / Chroma) -----------------
+    
     chunks = build_chunks_from_paths(files)
     where = {"categoria": args.categoria} if args.categoria else None
 
@@ -641,7 +642,7 @@ def main():
             rerank_top_m=args.rerank_top_m
         )
         ans = generate_with_context(args.q, ctx)
-        print("\n=== ANSWER (Local Chroma + BM25 + MMR + Re-Rank) ===\n")
+        print("=== ANSWER (Local Chroma + BM25 + MMR + Re-Rank) ===")
         print(ans)
         return
 
